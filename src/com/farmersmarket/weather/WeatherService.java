@@ -1,11 +1,13 @@
 package com.farmersmarket.weather;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 public class WeatherService {
     private static final String API_URL = "http://dataservice.accuweather.com/currentconditions/v1/";
@@ -27,11 +29,11 @@ public class WeatherService {
             in.close();
             conn.disconnect();
 
-            JSONArray jsonArray = new JSONArray(content.toString());
-            JSONObject json = jsonArray.getJSONObject(0);
-            return json.getString("WeatherText");
-        } catch (Exception e) {
-            e.printStackTrace();
+            JsonArray jsonArray = JsonParser.parseString(content.toString()).getAsJsonArray();
+            JsonObject json = jsonArray.get(0).getAsJsonObject();
+            return json.get("WeatherText").getAsString();
+        } catch (IOException e) {
+            System.err.println("Error: " + e.getMessage());
             return "Unable to get weather data";
         }
     }
