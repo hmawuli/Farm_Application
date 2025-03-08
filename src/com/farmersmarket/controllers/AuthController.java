@@ -1,10 +1,12 @@
 package com.farmersmarket.controllers;
-import com.farmersmarket.database.DatabaseConnection;
-import com.farmersmarket.models.User;
-import javafx.scene.control.Alert;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
+import com.farmersmarket.database.DatabaseConnection;
+import com.farmersmarket.models.User;
+
+import javafx.scene.control.Alert;
 public class AuthController {
 
     public boolean login(String username, String password) {

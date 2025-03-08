@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 public class FarmersMarketApplication extends Application {
     
+    @Override
     public void start(Stage primaryStage) {
         LoginView loginView = new LoginView();
         Scene scene = new Scene(loginView.getView(), 800, 600);
