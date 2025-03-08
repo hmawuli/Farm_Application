@@ -26,7 +26,8 @@ public class AuthController {
             }
         } catch (Exception e) {
             showAlert("Login Failed", "Error: " + e.getMessage());
-            e.printStackTrace();
+            // Log the exception
+            System.err.println("Error: " + e.getMessage());
             return false;
         }
     }
@@ -46,7 +47,7 @@ public class AuthController {
             return true;
         } catch (Exception e) {
             showAlert("Registration Failed", "Error: " + e.getMessage());
-            e.printStackTrace();
+            System.err.println("Error: " + e.getMessage());
             return false;
         }
     }
@@ -60,7 +61,7 @@ public class AuthController {
             return rs.next();
         } catch (Exception e) {
             showAlert("Error", "Error checking user existence: " + e.getMessage());
-            e.printStackTrace();
+            System.err.println("Error: " + e.getMessage());
             return false;
         }
     }
