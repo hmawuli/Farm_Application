@@ -1,8 +1,10 @@
 package com.farmersmarket.views;
 
 import com.farmersmarket.models.FarmerProfile;
+
 import javafx.geometry.Insets;
-import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
 public class FarmerProfileView {
@@ -26,5 +28,9 @@ public class FarmerProfileView {
 
     public VBox getView() {
         return view;
+    }
+
+    public void setView(VBox view) {
+        this.view = view;
     }
 }
