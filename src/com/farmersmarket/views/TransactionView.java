@@ -1,8 +1,10 @@
 package com.farmersmarket.views;
 
 import com.farmersmarket.models.Transaction;
+
 import javafx.geometry.Insets;
-import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
 public class TransactionView {
@@ -26,5 +28,8 @@ public class TransactionView {
 
     public VBox getView() {
         return view;
+    }
+    public void setView(VBox view) {
+        this.view = view;
     }
 }
