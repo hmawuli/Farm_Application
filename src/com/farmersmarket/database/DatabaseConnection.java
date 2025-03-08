@@ -9,7 +9,11 @@ public class DatabaseConnection {
     private static final String PASSWORD = "alicemawuli@2022";
 
     public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(URL, USER, PASSWORD);
+        try {
+            return DriverManager.getConnection(URL, USER, PASSWORD);
+        } catch (SQLException e) {
+            System.out.println("Database connection failed: " + e.getMessage());
+            throw e;
+        }
     }
-
 }
