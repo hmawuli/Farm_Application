@@ -1,7 +1,13 @@
 package com.farmersmarket.views;
 import com.farmersmarket.controllers.AuthController;
+import com.farmersmarket.models.User;
+
 import javafx.geometry.Insets;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 public class LoginView {
 
@@ -28,7 +34,8 @@ public class LoginView {
         });
 
         registerButton.setOnAction(e -> {
-            if (authController.register(new User(usernameField.getText(), passwordField.getText()))) {
+            User newUser = new User(usernameField.getText(), passwordField.getText());
+            if (authController.register(newUser)) {
                 showAlert("Success", "Registration successful!");
             } else {
                 showAlert("Failed", "Registration failed.");
@@ -47,5 +54,9 @@ public class LoginView {
         alert.setTitle(title);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    public void setView(VBox view) {
+        this.view = view;
     }
 }
